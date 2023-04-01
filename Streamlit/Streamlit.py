@@ -10,7 +10,7 @@ labels = {0: "Type A", 1: "Type B", 2: "Type C"}
 #defining function to read model from disk 
 def input_type_classifier():
     global type_interpreter
-    type_interpreter = tf.lite.Interpreter(model_path='streamlit/classifier.tflite')
+    type_interpreter = tf.lite.Interpreter(model_path='Streamlit/classifier.tflite')
     type_interpreter.allocate_tensors()
 
 def predict(image):

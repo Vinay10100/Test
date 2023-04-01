@@ -43,11 +43,14 @@ def predict(image):
 if __name__ == '__main__':
     file_uploaded = st.file_uploader("Upload the Image File", type=['jpg', 'jpeg', 'png'])
     
-    if file_uploaded is not None:
-        if type_interpreter is None:
-            input_type_classifier()
-        image = Image.open(file_uploaded)
-        result = predict(image)
-        col1, col2 = st.columns(2)
-        col1.header("Type Classification Result")
-        col1.write("The image is classified as "+result['class'])
+  if file_uploaded is not None:
+    if type_interpreter is None:
+        input_type_classifier()
+    image = Image.open(file_uploaded)
+    result = predict(image)
+    col1, col2 = st.columns(2)
+    col1.header("Type Classification Result")
+    col1.write("The image is classified as "+result['class'])
+    col1.write("Confidence scores:")
+    col1.write(result['confidence_scores'])
+    col2.image(image, caption='Uploaded Image')

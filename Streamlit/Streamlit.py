@@ -49,4 +49,3 @@ if __name__ == '__main__':
         col1, col2 = st.columns(2)
         col1.header("Type Classification Result")
         col1.write("The image is classified as "+result['class'])
-        col2.image(image, caption='Uploaded Image')

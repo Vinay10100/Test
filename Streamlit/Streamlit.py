@@ -32,8 +32,10 @@ def predict(image):
     type_interpreter.invoke()
     predictions = type_interpreter.get_tensor(output_details[0]['index'])
     pred = np.argmax(predictions[0])
+    confidence_scores = {labels[i]: predictions[0][i] for i in range(len(labels))}
     result = {
-        'class': labels[pred]
+        'class': labels[pred],
+        'confidence_scores': confidence_scores
     }
     
     return result
